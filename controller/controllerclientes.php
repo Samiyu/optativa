@@ -33,58 +33,59 @@ switch ($opcion) {
 //navegamos a la pagina de creacion:
         header('Location: ../view/crearC.php');
         break;
-    case "guardarC":
+    case "guardar":
 //obtenemos los valores ingresados por el usuario en el formulario:
-        $codigo = $_REQUEST['codigo'];
-        $nombre = $_REQUEST['nombre'];
-        $precio = $_REQUEST['precio'];
-        $cantidad = $_REQUEST['cantidad'];
+        $id = $_REQUEST['id'];
+        $cedula = $_REQUEST['cedula'];
+        $nombres = $_REQUEST['nombres'];
+        $apellidos = $_REQUEST['apellidos'];
 //creamos un nuevo producto:
         try {
-            $productoModel->crearProducto($codigo, $nombre, $precio, $cantidad);
+            $clienteModel->crearCliente($id, $cedula, $nombres, $apellidos);
         } catch (Exception $e) {
 //colocamos el mensaje de la excepcion en sesion:
             $_SESSION['mensaje'] = $e->getMessage();
-            header('Location: ../index.php');
+            header('Location: ../clientes.php');
         }
        // $productoModel->crearProducto($codigo, $nombre, $precio, $cantidad);
 //actualizamos la lista de productos para grabar en sesion:
-        $listado = $productoModel->getProductos(true);
-        $_SESSION['listado'] = serialize($listado);
-        header('Location: ../index.php');
+        $listadoC = $clienteModel->getClientes(true);
+        $_SESSION['listadoC'] = serialize($listadoC);
+        header('Location: ../clientes.php');
         break;
     case "eliminar":
 //obtenemos el codigo del producto a eliminar:
-        $codigo = $_REQUEST['codigo'];
+        $id = $_REQUEST['id'];
 //eliminamos el producto:
-        $productoModel->eliminarProducto($codigo);
+        $clienteModel->eliminarCliente($id);
 //actualizamos la lista de productos para grabar en sesion:
-        $listado = $productoModel->getProductos(true);
-        $_SESSION['listado'] = serialize($listado);
-        header('Location: ../index.php');
+        $listadoC = $clienteModel->getClientes(true);
+        $_SESSION['listadoC'] = serialize($listadoC);
+        header('Location: ../clientes.php');
         break;
     case "cargar":
 //para permitirle actualizar un producto al usuario primero
 //obtenemos los datos completos de ese producto:
-        $codigo = $_REQUEST['codigo'];
-        $producto = $productoModel->getProducto($codigo);
+        $id = $_REQUEST['id'];
+        $cliente = $clienteModel->getCliente($id);
 //guardamos en sesion el producto para posteriormente visualizarlo
 //en un formulario para permitirle al usuario editar los valores:
-        $_SESSION['producto'] = $producto;
-        header('Location: ../view/actualizar.php');
+        $_SESSION['cliente'] = $cliente;
+        header('Location: ../view/actualizarC.php');
         break;
     case "actualizar":
 //obtenemos los datos modificados por el usuario:
-        $codigo = $_REQUEST['codigo'];
-        $nombre = $_REQUEST['nombre'];
-        $precio = $_REQUEST['precio'];
-        $cantidad = $_REQUEST['cantidad'];
+        
+          $id = $_REQUEST['id'];
+        $cedula = $_REQUEST['cedula'];
+        $nombres = $_REQUEST['nombres'];
+        $apellidos = $_REQUEST['apellidos'];
 //actualizamos los datos del producto:
-        $productoModel->actualizarProducto($codigo, $nombre, $precio, $cantidad);
+        $clienteModel->actualizarCliente($id, $cedula, $nombres, $apellidos);
 //actualizamos la lista de productos para grabar en sesion:
-        $listado = $productoModel->getProductos();
-        $_SESSION['listado'] = serialize($listado);
-        header('Location: ../index.php');
+        $listadoC = $clienteModel->getClientes();
+        $_SESSION['listadoC'] = serialize($listado);
+        header('Location: ../clientes.php');
         break;
     default:
 //si no existe la opcion recibida por el controlador, siempre

@@ -64,48 +64,16 @@ class ClienteModel {
         return $listado;
     }
 
-    /**
-     * Obtiene un producto especifico.
-     * @param type $codigo El codigo del producto a buscar.
-     * @return \Producto
-     */
-    public function getProducto($codigo) {
-//Obtenemos la informacion del producto especifico:
-        $pdo = Database::connect();
-//Utilizamos parametros para la consulta:
-        $sql = "select * from producto where codigo=?";
-        $consulta = $pdo->prepare($sql);
-//Ejecutamos y pasamos los parametros para la consulta:
-        $consulta->execute(array($codigo));
-//Extraemos el registro especifico:
-        $dato = $consulta->fetch(PDO::FETCH_ASSOC);
-//Transformamos el registro obtenido a objeto:
-        $producto = new Producto();
-        $producto->setCodigo($dato['codigo']);
-        $producto->setNombre($dato['nombre']);
-        $producto->setPrecio($dato['precio']);
-        $producto->setCantidad($dato['cantidad']);
-        Database::disconnect();
-        return $producto;
-    }
-
-    /**
-     * Crea un nuevo producto en la base de datos.
-     * @param type $codigo
-     * @param type $nombre
-     * @param type $precio
-     * @param type $cantidad
-     */
-    public function crearProducto($codigo, $nombre, $precio, $cantidad) {
+public function crearCliente($id, $cedula, $nombres, $apellidos) {
 //Preparamos la conexion a la bdd:
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 //Preparamos la sentencia con parametros:
-        $sql = "insert into producto (codigo,nombre,precio,cantidad) values(?,?,?,?)";
+        $sql = "insert into clientes (id, cedula, nombres, apellidos) values(?,?,?,?)";
         $consulta = $pdo->prepare($sql);
 //Ejecutamos y pasamos los parametros:
         try {
-            $consulta->execute(array($codigo, $nombre, $precio, $cantidad));
+            $consulta->execute(array($id, $cedula, $nombres, $apellidos));
         } catch (PDOException $e) {
             Database::disconnect();
             throw new Exception($e->getMessage());
@@ -118,14 +86,14 @@ class ClienteModel {
      * Elimina un producto especifico de la bdd.
      * @param type $codigo
      */
-    public function eliminarProducto($codigo) {
+    public function eliminarCliente($id) {
 //Preparamos la conexion a la bdd:
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "delete from producto where codigo=?";
+        $sql = "delete from clientes where id=?";
         $consulta = $pdo->prepare($sql);
 //Ejecutamos la sentencia incluyendo a los parametros:
-        $consulta->execute(array($codigo));
+        $consulta->execute(array($id));
         Database::disconnect();
     }
 
@@ -136,13 +104,13 @@ class ClienteModel {
      * @param type $precio
      * @param type $cantidad
      */
-    public function actualizarProducto($codigo, $nombre, $precio, $cantidad) {
+    public function actualizarCliente($id, $cedula, $nombres, $apellidos) {
 //Preparamos la conexión a la bdd:
         $pdo = Database::connect();
-        $sql = "update producto set nombre=?,precio=?,cantidad=? where codigo=?";
+        $sql = "update clientes set cedula=?,nombres=?,apellidos=? where id=?";
         $consulta = $pdo->prepare($sql);
 //Ejecutamos la sentencia incluyendo a los parametros:
-        $consulta->execute(array($nombre, $precio, $cantidad, $codigo));
+        $consulta->execute(array($id, $cedula, $nombres, $apellidos));
         Database::disconnect();
     }
 
