@@ -19,7 +19,7 @@
     </tr>
   <tr>
     <td width="100">ID</td>
-    <td width="144"><input type="text" name="codigo"></td>
+    <td width="144"><input type="text" name="id"></td>
   </tr>
   <tr>
     <td>Cedula</td>
