@@ -1,34 +1,21 @@
 <?php
-
-///////////////////////////////////////////////////////////////////////
-//Componente controller que verifica la opcion seleccionada
-//por el usuario, ejecuta el modelo y enruta la navegacion de paginas.
-///////////////////////////////////////////////////////////////////////
 require_once '../model/ClienteModel.php';
 session_start();
-$productoModel = new ClienteModel();
+
+$clienteModel = new ClienteModel();
 $opcion = $_REQUEST['opcion'];
 //limpiamos cualquier mensaje previo:
 unset($_SESSION['mensaje']);
 switch ($opcion) {
-    case "listar":
+    case "listarC":
 //obtenemos la lista de productos:
-        $listado = $productoModel->getClientes(true);
+        $listado = $clienteModel->getClientes(true);
 //y los guardamos en sesion:
         $_SESSION['listadoclis'] = serialize($listado);
         //obtenemos el valor total de productos y guardamos en sesion:
-
         header('Location: ../clientes.php');
         break;
-    case "listar_desc":
-//obtenemos la lista de productos:
-        $listado = $productoModel->getProductos(false);
-//y los guardamos en sesion:
-        $_SESSION['listado'] = serialize($listado);
-//obtenemos el valor total de productos:
-        $_SESSION['valorTotal'] = $productoModel->getValorProductos();
-        header('Location: ../index.php');
-        break;
+    
     case "crearC":
 //navegamos a la pagina de creacion:
         header('Location: ../view/crearC.php');

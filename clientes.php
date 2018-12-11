@@ -2,15 +2,15 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>CRUD Productos</title>
+        <title>CRUD Clientes</title>
     </head>
     <body>
     <p align="center"><b><font face="Monotype Corsiva" size="6">Clientes</font></b></p>
         <table align="center">
             <tr><td>
                     <form action="controller/controllerclientes.php">
-                        <input type="hidden" value="listar" name="opcion">
-                        <input type="submit" style="width: 150px; height: 60px;" value="Consultar listado">
+                        <input type="hidden" value="listarC" name="opcion">
+                        <input type="submit" style="width: 150px; height: 60px;" value="Ver clientes">
                     </form>
                 </td><td>
                     <form action="controller/controllerclientes.php">

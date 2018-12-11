@@ -1,14 +1,8 @@
 <?php
 include 'Database.php';
 include 'Cliente.php';
-/**
- * Componente model para el manejo de productos.
- *
- * @author mrea
- */
-class ClienteModel {
 
-   
+class ClienteModel {
    
  public function getCliente($id) {
 //Obtenemos la informacion del producto especifico:
