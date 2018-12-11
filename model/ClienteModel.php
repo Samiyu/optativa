@@ -20,6 +20,25 @@ class ClienteModel {
         }
         return $suma;
     }
+ public function getCliente($id) {
+//Obtenemos la informacion del producto especifico:
+        $pdo = Database::connect();
+//Utilizamos parametros para la consulta:
+        $sql = "select * from clientes where id=?";
+        $consulta = $pdo->prepare($sql);
+//Ejecutamos y pasamos los parametros para la consulta:
+        $consulta->execute(array($id));
+//Extraemos el registro especifico:
+        $dato = $consulta->fetch(PDO::FETCH_ASSOC);
+//Transformamos el registro obtenido a objeto:
+        $cliente = new Cliente();
+        $cliente->setId($dato['id']);
+        $cliente->setCedula($dato['cedula']);
+        $cliente->setNombres($dato['nombres']);
+        $cliente->setApellidos($dato['apellidos']);
+        Database::disconnect();
+        return $cliente;
+    }
 
     public function getClientes($orden) {
 //obtenemos la informacion de la bdd:

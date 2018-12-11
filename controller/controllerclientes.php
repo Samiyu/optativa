@@ -31,7 +31,7 @@ switch ($opcion) {
         break;
     case "crearC":
 //navegamos a la pagina de creacion:
-        header('Location: ../view/crear.php');
+        header('Location: ../view/crearC.php');
         break;
     case "guardarC":
 //obtenemos los valores ingresados por el usuario en el formulario:
