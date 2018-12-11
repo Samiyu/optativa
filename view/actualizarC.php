@@ -11,10 +11,11 @@
         session_start();
         $cliente = $_SESSION['cliente'];
         ?>
-        <form action="../../controller/controller.php">
+        <form action="../../controller/controllerclientes.php">
             <input type="hidden" value="actualizarC" name="opcion">
             <!-- Utilizamos pequeños scripts PHP para obtener los valores del producto: -->
-            <input type="hidden" value="<?php echo $cliente->getId(); ?>" name="id">
+            <input type="hidden" value="
+             <?php echo $cliente->getId(); ?>" name="id">
             Id:<b><?php echo $cliente->getId(); ?></b><br>
             Cedula:<input type="text" name="cedula" value="<?php echo $cliente->getCedula(); ?>"><br>
             Nombres:<input type="text" name="nombres" value="<?php echo $cliente->getNombres(); ?>"><br>

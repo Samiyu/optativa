@@ -8,18 +8,8 @@ include 'Cliente.php';
  */
 class ClienteModel {
 
-    /**
-     * Obtiene todos los productos de la base de datos.
-     * @return array
-     */
-    public function getValorProductos() {
-        $listado = $this->getProductos($orden);
-        $suma = 0;
-        foreach ($listado as $prod) {
-            $suma+=$prod->getPrecio() * $prod->getCantidad();
-        }
-        return $suma;
-    }
+   
+   
  public function getCliente($id) {
 //Obtenemos la informacion del producto especifico:
         $pdo = Database::connect();
@@ -38,30 +28,6 @@ class ClienteModel {
         $cliente->setApellidos($dato['apellidos']);
         Database::disconnect();
         return $cliente;
-    }
-
-    public function getClientes($orden) {
-//obtenemos la informacion de la bdd:
-        $pdo = Database::connect();
-//verificamos el ordenamiento asc o desc:
-        if ($orden == true)//asc
-            $sql = "select * from clientes order by id";
-        else //desc
-            $sql = "select * from clientes order by id desc";
-        $resultado = $pdo->query($sql);
-//transformamos los registros en objetos de tipo Producto:
-        $listado = array();
-        foreach ($resultado as $res) {
-            $producto = new Cliente();
-            $producto->setId($res['id']);
-            $producto->setCedula($res['cedula']);
-            $producto->setNombres($res['nombres']);
-	    $producto->setApellidos($res['apellidos']);
-            array_push($listado, $producto);
-        }
-        Database::disconnect();
-//retornamos el listado resultante:
-        return $listado;
     }
 
 public function crearCliente($id, $cedula, $nombres, $apellidos) {
@@ -97,13 +63,6 @@ public function crearCliente($id, $cedula, $nombres, $apellidos) {
         Database::disconnect();
     }
 
-    /**
-     * Actualiza un producto existente.
-     * @param type $codigo
-     * @param type $nombre
-     * @param type $precio
-     * @param type $cantidad
-     */
     public function actualizarCliente($id, $cedula, $nombres, $apellidos) {
 //Preparamos la conexión a la bdd:
         $pdo = Database::connect();
@@ -113,5 +72,4 @@ public function crearCliente($id, $cedula, $nombres, $apellidos) {
         $consulta->execute(array($id, $cedula, $nombres, $apellidos));
         Database::disconnect();
     }
-
 }
