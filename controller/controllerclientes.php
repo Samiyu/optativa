@@ -47,7 +47,6 @@ switch ($opcion) {
             $_SESSION['mensaje'] = $e->getMessage();
             header('Location: ../clientes.php');
         }
-       // $productoModel->crearProducto($codigo, $nombre, $precio, $cantidad);
 //actualizamos la lista de productos para grabar en sesion:
         $listadoC = $clienteModel->getClientes(true);
         $_SESSION['listadoC'] = serialize($listadoC);
