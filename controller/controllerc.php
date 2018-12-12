@@ -22,7 +22,6 @@ switch ($op) {
         break;
 
     case "crearC":
-
         header('Location: ../view/crearC.php');
         break;
     case "guardarC":
