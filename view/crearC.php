@@ -5,8 +5,8 @@
         <title>Crear Cliente</title>
     </head>
     <body>
-        <form action="../controller/controller.php">
-            <input type="hidden" value="guardarC" name="opcion">
+        <form action="controller/controller.php">
+            <input type="hidden" value="guardarC" name="op">
           
           <table width="200" border="1" bordercolor="#006699" align="center">
             <tr>

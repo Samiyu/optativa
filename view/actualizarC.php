@@ -11,8 +11,8 @@
         session_start();
         $cliente = $_SESSION['cliente'];
         ?>
-        <form action="../controller/controllerc.php">
-            <input type="hidden" value="actualizarC" name="opcion">
+        <form action="/controller/controllerc.php">
+            <input type="hidden" value="actualizarC" name="op">
             <!-- Utilizamos pequeños scripts PHP para obtener los valores del producto: -->
             <input type="hidden" value="
              <?php echo $cliente->getId(); ?>" name="id">

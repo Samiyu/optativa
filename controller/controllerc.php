@@ -30,11 +30,10 @@ switch ($op) {
         $cedula = $_REQUEST['cedula'];
         $nombres = $_REQUEST['nombres'];
         $apellidos = $_REQUEST['apellidos'];
-
         try {
             $clienteModel->crearCliente($id, $cedula, $nombres, $apellidos);
         } catch (Exception $e) {
-            $_SESSION['mensaje'] = $e->getMessage();
+            $_SESSION['mensaj'] = $e->getMessage();
             header('Location: ../clientes.php');
         }
         $listadoC = $clienteModel->getClientes();
@@ -44,10 +43,8 @@ switch ($op) {
 
     case "eliminarC":
         $id = $_REQUEST['id'];
-
         $clienteModel->eliminarCliente($id);
-
-        $listadoC = $clienteModel->getClientes(true);
+        $listadoC = $clienteModel->getClientes();
         $_SESSION['listadoclis'] = serialize($listadoC);
         header('Location: ../clientes.php');
         break;
