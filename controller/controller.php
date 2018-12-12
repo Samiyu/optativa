@@ -158,7 +158,7 @@ switch ($opcion) {
 
         $listado = $facturaModel->getFacturas(true);
         $_SESSION['listadofac'] = serialize($listado);
-        header('Location: ../clientes.php');
+        header('Location: ../facturas.php');
         break;
 
     case "crearF":
