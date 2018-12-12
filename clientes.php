@@ -42,8 +42,8 @@
                     echo "<td>" . $prod->getApellidos() . "</td>";
 //opciones para invocar al controlador indicando la opcion eliminar o cargar
 //y la fila que selecciono el usuario (con el codigo del producto):
-                    echo "<td><a href='./controller/controllerc.php?opcion=eliminarC&id=" . $prod->getId() . "'>eliminar</a></td>";
-                    echo "<td><a href='./controller/controllerc.php?opcion=cargarC&id=" . $prod->getId() . "'>actualizar</a></td>";
+                    echo "<td><a href='controller/controllerc.php?opcion=eliminarC&id=" . $prod->getId() . "'>eliminar</a></td>";
+                    echo "<td><a href='controller/controllerc.php?opcion=cargarC&id=" . $prod->getId() . "'>actualizar</a></td>";
                     echo "</tr>";
                 }
             } else {
