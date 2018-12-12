@@ -14,7 +14,7 @@ unset($_SESSION['mensaj']);
 switch ($op) {
    case "listarC":
 //obtenemos la lista de productos:
-        $listadoC = $clienteModel->getClientes($ordenc);
+        $listadoC = $clienteModel->getClientes();
 //y los guardamos en sesion:
         $_SESSION['listadoclis'] = serialize($listadoC);
         //obtenemos el valor total de productos y guardamos en sesion:
