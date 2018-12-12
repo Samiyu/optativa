@@ -47,7 +47,7 @@
                     echo "</tr>";
                 }
             } else {
-                echo "No se han cargado datos.";
+                echo "";
             }
             ?>
         </table>
