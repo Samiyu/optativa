@@ -86,6 +86,14 @@ switch ($opcion) {
 //redirigimos la navegacion a la pagina index:
         header('Location: ../index.php');
 
+         case "listarC":
+//obtenemos la lista de productos:
+        $listadoC = $clienteModel->getClientes($ordenc);
+//y los guardamos en sesion:
+        $_SESSION['listadoclis'] = serialize($listadoC);
+        //obtenemos el valor total de productos y guardamos en sesion:
+        header('Location: ../clientes.php');
+        break;
 }
 //    ---------------------FACTURAS----------------------------------
     

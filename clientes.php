@@ -21,12 +21,12 @@
     <p align="center"><b><font face="Monotype Corsiva" size="6">Clientes</font></b></p>
         <table align="center">
             <tr><td>
-                    <form action="controller/controllerc.php">
+                    <form action="controller/controller.php">
                         <input type="hidden" value="listarC" name="opcion">
                         <input type="submit" style="width: 150px; height: 60px;" value="Ver clientes">
                     </form>
                 </td><td>
-                    <form action="controller/controllerc.php">
+                    <form action="controller/controller.php">
                         <input type="hidden" value="crearC" name="opcion">
                         <input type="submit" style="width: 150px; height: 60px;" value="Crear Cliente">
                     </form>
@@ -55,8 +55,8 @@
                     echo "<td>" . $prod->getApellidos() . "</td>";
 //opciones para invocar al controlador indicando la opcion eliminar o cargar
 //y la fila que selecciono el usuario (con el codigo del producto):
-                    echo "<td><a href='controller/controllerc.php?opcion=eliminarC&id=" . $prod->getId() . "'>eliminar</a></td>";
-                    echo "<td><a href='controller/controllerc.php?opcion=cargarC&id=" . $prod->getId() . "'>actualizar</a></td>";
+                    echo "<td><a href='controller/controller.php?opcion=eliminarC&id=" . $prod->getId() . "'>eliminar</a></td>";
+                    echo "<td><a href='controller/controller.php?opcion=cargarC&id=" . $prod->getId() . "'>actualizar</a></td>";
                     echo "</tr>";
                 }
             } else {
