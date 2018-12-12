@@ -77,16 +77,16 @@ class FacturaModel {
      * @param type $precio
      * @param type $cantidad
      */
-    public function crearProducto($codigo, $nombre, $precio, $cantidad) {
+    public function crearFactura($id, $ref_factura, $ref_producto, $cantidad,$precio,$subtotal) {
 //Preparamos la conexion a la bdd:
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 //Preparamos la sentencia con parametros:
-        $sql = "insert into producto (codigo,nombre,precio,cantidad) values(?,?,?,?)";
+        $sql = "insert into detallefactura (id,ref_factura,ref_producto,cantidad,precio,subtotal) values(?,?,?,?,?,?)";
         $consulta = $pdo->prepare($sql);
 //Ejecutamos y pasamos los parametros:
         try {
-            $consulta->execute(array($codigo, $nombre, $precio, $cantidad));
+            $consulta->execute(array($id, $ref_factura, $ref_producto, $cantidad,$precio,$subtotal) );
         } catch (PDOException $e) {
             Database::disconnect();
             throw new Exception($e->getMessage());
@@ -99,14 +99,14 @@ class FacturaModel {
      * Elimina un producto especifico de la bdd.
      * @param type $codigo
      */
-    public function eliminarProducto($codigo) {
+    public function eliminarFactura($id) {
 //Preparamos la conexion a la bdd:
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "delete from producto where codigo=?";
+        $sql = "delete from factura where id=?";
         $consulta = $pdo->prepare($sql);
 //Ejecutamos la sentencia incluyendo a los parametros:
-        $consulta->execute(array($codigo));
+        $consulta->execute(array($id));
         Database::disconnect();
     }
 
