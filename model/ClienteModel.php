@@ -14,12 +14,12 @@ class ClienteModel {
         $resultado = $pdo->query($sql);
 //transformamos los registros en objetos de tipo Producto:
         $listadoC= array();
-        foreach ($resultado as $res) {
+        foreach ($resultadoC as $re) {
             $cliente = new Cliente();
-            $cliente->setCodigo($res['id']);
-            $cliente->setNombre($res['cedula']);
-            $cliente->setPrecio($res['nombres']);
-            $cliente->setCantidad($res['apellidos']);
+            $cliente->setCodigo($re['id']);
+            $cliente->setNombre($re['cedula']);
+            $cliente->setPrecio($re['nombres']);
+            $cliente->setCantidad($re['apellidos']);
             array_push($listadoC, $cliente);
         }
         Database::disconnect();

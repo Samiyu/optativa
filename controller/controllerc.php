@@ -18,7 +18,7 @@ switch ($opcion) {
 //y los guardamos en sesion:
         $_SESSION['listadoclis'] = serialize($listadoC);
         //obtenemos el valor total de productos y guardamos en sesion:
-        header('Location: ../clientes.php');
+        header('Location: ../index.php');
         break;
 
     case "crearC":
