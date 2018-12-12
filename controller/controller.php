@@ -9,6 +9,7 @@ require_once '../model/ClienteModel.php';
 session_start();
 $productoModel = new ProductoModel();
 $clienteModel = new ClienteModel();
+
 $opcion = $_REQUEST['opcion'];
 //limpiamos cualquier mensaje previo:
 unset($_SESSION['mensaje']);

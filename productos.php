@@ -8,13 +8,13 @@
     <p align="center"><b><font face="Monotype Corsiva" size="6">Productos</font></b></p>
         <table align="center">
             <tr><td>
-                    <form action="controller/controller.php">
+                    <form action="./controller/controller.php">
                         <input type="hidden" value="listar" name="opcion">
                         <input type="submit" style="width: 150px; height: 60px;" value="Consultar listado">
                     </form>
                 </td>
                 <td>
-                    <form action="controller/controller.php">
+                    <form action="./controller/controller.php">
                         <input type="hidden" value="listar_desc" name="opcion">
                         <input type="submit" style="width: 200px; height: 60px;" value="Consultar listado descendente">
                     </form>
@@ -48,8 +48,8 @@
                     echo "<td>" . $prod->getCantidad() . "</td>";
 //opciones para invocar al controlador indicando la opcion eliminar o cargar
 //y la fila que selecciono el usuario (con el codigo del producto):
-                    echo "<td><a href='controller/controller.php?opcion=eliminar&codigo=" . $prod->getCodigo() . "'>eliminar</a></td>";
-                    echo "<td><a href='controller/controller.php?opcion=cargar&codigo=" . $prod->getCodigo() . "'>actualizar</a></td>";
+                    echo "<td><a href='./controller/controller.php?opcion=eliminar&codigo=" . $prod->getCodigo() . "'>eliminar</a></td>";
+                    echo "<td><a href='./controller/controller.php?opcion=cargar&codigo=" . $prod->getCodigo() . "'>actualizar</a></td>";
                     echo "</tr>";
                 }
             } else {

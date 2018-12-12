@@ -8,13 +8,13 @@
     <p align="center"><b><font face="Monotype Corsiva" size="6">Facturas</font></b></p>
         <table align="center">
             <tr><td>
-                    <form action="controller/controllerfacturas.php">
+                    <form action="./controller/controllerfacturas.php">
                         <input type="hidden" value="listar" name="opcion">
                         <input type="submit" style="width: 150px; height: 60px;" value="Consultar listado">
                     </form>
                 </td>
                 <td>
-                    <form action="controller/controllerfacturas.php">
+                    <form action="./controller/controllerfacturas.php">
                         <input type="hidden" value="crear" name="opcion">
                         <input type="submit" style="width: 150px; height: 60px;" value="Crear producto">
                     </form>
@@ -43,8 +43,8 @@
                     echo "<td>" . $prod->getApellidos() . "</td>";
 //opciones para invocar al controlador indicando la opcion eliminar o cargar
 //y la fila que selecciono el usuario (con el codigo del producto):
-                    echo "<td><a href='controller/controllerfacturas.php?opcion=eliminar&codigo=" . $prod->getId() . "'>eliminar</a></td>";
-                    echo "<td><a href='controller/controllerfacturas.php?opcion=cargar&codigo=" . $prod->getId() . "'>actualizar</a></td>";
+                    echo "<td><a href='./controller/controllerfacturas.php?opcion=eliminar&codigo=" . $prod->getId() . "'>eliminar</a></td>";
+                    echo "<td><a href='./controller/controllerfacturas.php?opcion=cargar&codigo=" . $prod->getId() . "'>actualizar</a></td>";
                     echo "</tr>";
                 }
             } else {
