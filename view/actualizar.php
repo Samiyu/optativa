@@ -11,7 +11,7 @@
         session_start();
         $producto = $_SESSION['producto'];
         ?>
-        <form action="../../controller/controller.php">
+        <form action="../controller/controller.php">
             <input type="hidden" value="actualizar" name="opcion">
             <!-- Utilizamos pequeños scripts PHP para obtener los valores del producto: -->
             <input type="hidden" value="<?php echo $producto->getCodigo(); ?>" name="codigo">
