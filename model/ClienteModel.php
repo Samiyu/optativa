@@ -9,7 +9,7 @@ class ClienteModel {
 //obtenemos la informacion de la bdd:
         $pdo = Database::connect();
         $sql = "select * from clientes;";
-        $resultado = $pdo->query($sql);
+        $resultadoC = $pdo->query($sql);
 //transformamos los registros en objetos de tipo Producto:
         $listadoC = array();
         foreach ($resultadoC as $re) {
