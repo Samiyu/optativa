@@ -10,7 +10,7 @@ session_start();
 $clienteModel = new ClienteModel();
 $opcion = $_REQUEST['op'];
 //limpiamos cualquier mensaje previo:
-unset($_SESSION['mensaje']);
+unset($_SESSION['mensaj']);
 switch ($op) {
    case "listarC":
 //obtenemos la lista de productos:

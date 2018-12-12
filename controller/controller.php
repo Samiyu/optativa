@@ -82,23 +82,11 @@ switch ($opcion) {
         header('Location: ../index.php');
         break;
     
-    
-    
-    
-    case "listarC":
-//obtenemos la lista de productos:
-        $listadoC = $clienteModel->getClientes($ordenc);
-//y los guardamos en sesion:
-        $_SESSION['listadoclis'] = serialize($listadoC);
-        //obtenemos el valor total de productos y guardamos en sesion:
-        header('Location: ../index.php');
-        break;
+   
     default:
 //si no existe la opcion recibida por el controlador, siempre
 //redirigimos la navegacion a la pagina index:
         header('Location: ../index.php');
 
-       
 }
-//    ---------------------FACTURAS----------------------------------
-    
+//    ---------------------FACTURAS--------------------------
