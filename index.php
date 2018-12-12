@@ -60,8 +60,8 @@
                     echo "<td>" . $prod->getCantidad() . "</td>";
 //opciones para invocar al controlador indicando la opcion eliminar o cargar
 //y la fila que selecciono el usuario (con el codigo del producto):
-                    echo "<td><a href='./controller/controller.php?opcion=eliminar&codigo=" . $prod->getCodigo() . "'>eliminar</a></td>";
-                    echo "<td><a href='./controller/controller.php?opcion=cargar&codigo=" . $prod->getCodigo() . "'>actualizar</a></td>";
+                    echo "<td><a href='controller/controller.php?opcion=eliminar&codigo=" . $prod->getCodigo() . "'>eliminar</a></td>";
+                    echo "<td><a href='controller/controller.php?opcion=cargar&codigo=" . $prod->getCodigo() . "'>actualizar</a></td>";
                     echo "</tr>";
                 }
             } else {
