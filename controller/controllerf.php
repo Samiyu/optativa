@@ -52,6 +52,9 @@ switch ($opcion) {
         $_SESSION['factura'] = $factura;
         header('Location: ../view/actualizarF.php');
         break;
-    
+    default:
+//si no existe la opcion recibida por el controlador, siempre
+//redirigimos la navegacion a la pagina index:
+        header('Location: ../facturas.php');
 }
 

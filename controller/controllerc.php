@@ -70,4 +70,8 @@ switch ($opcion) {
         $_SESSION['listadoclis'] = serialize($listado);
         header('Location: ../clientes.php');
         break;
+    default:
+//si no existe la opcion recibida por el controlador, siempre
+//redirigimos la navegacion a la pagina index:
+        header('Location: ../clientes.php');
 }

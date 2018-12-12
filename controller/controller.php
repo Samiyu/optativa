@@ -17,7 +17,7 @@ switch ($opcion) {
         break;
     case "listar_desc":
 //obtenemos la lista de productos:
-        $listado = $productoModel->getProductos(false);
+        $listado = $productoModel->getProductos($orden);
 //y los guardamos en sesion:
         $_SESSION['listado'] = serialize($listado);
 //obtenemos el valor total de productos:
