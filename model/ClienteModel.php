@@ -14,10 +14,10 @@ class ClienteModel {
         $listadoC = array();
         foreach ($resultadoC as $re) {
             $cliente = new Cliente();
-            $cliente->setCodigo($re['id']);
-            $cliente->setNombre($re['cedula']);
-            $cliente->setPrecio($re['nombres']);
-            $cliente->setCantidad($re['apellidos']);
+            $cliente->setId($re['id']);
+            $cliente->setCedula($re['cedula']);
+            $cliente->setNombres($re['nombres']);
+            $cliente->setApellidos($re['apellidos']);
             array_push($listadoC, $cliente);
         }
         Database::disconnect();
