@@ -5,6 +5,21 @@
         <title>CRUD Clientes</title>
     </head>
     <body>
+        <table width="100%" border="0">
+            <tr>
+                <td height="55" colspan="4"><table width="588" border="0" align="center">
+                        <tr>
+                            <td width="25%" background="imgs/fondomenuinferior.png" align="center"><a href="./clientes.php" target="cuerpoby"><div style="width: 100%; height: 50px; margin-top: 20px"  ><font color="#FFFFFF"><b>CLIENTES</b></font></div></a></td>
+                            <td width="23%" background="imgs/fondomenuinferior.png" align="center"><a href="./productos.php" target="cuerpoby"><div style="width: 100%; height: 50px; margin-top: 20px" ><font color="#FFFFFF"><b>PRODUCTOS</b></font></div></a></td>
+                            <td width="25%" background="imgs/fondomenuinferior.png" align="center"><a href="./facturas.php" target="cuerpoby"><div style="width: 100%; height: 50px; margin-top: 20px" ><font color="#FFFFFF"><b>FACTURACION</b></font></div></a></td>
+                        </tr>
+                    </table></td>
+            </tr>
+            <tr>
+                <td colspan="4"><iframe frameborder="0" id="cuerpoby"  name="cuerpoby" src="productos.php" width="100%" height="500"></iframe></td>
+            </tr>
+        </table>
+   
     <p align="center"><b><font face="Monotype Corsiva" size="6">Clientes</font></b></p>
         <table align="center">
             <tr><td>
