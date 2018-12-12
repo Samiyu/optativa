@@ -46,8 +46,8 @@
            include './model/Cliente.php';
 //verificamos si existe en sesion el listado de productos:
             if (isset($_SESSION['listadoclis'])) {
-                $listado = unserialize($_SESSION['listadoclis']);
-                foreach ($listado as $prod) {
+                $listadoC = unserialize($_SESSION['listadoclis']);
+                foreach ($listadoC as $prod) {
                     echo "<tr>";
                     echo "<td>" . $prod->getId() . "</td>";
                     echo "<td>" . $prod->getCedula() . "</td>";
