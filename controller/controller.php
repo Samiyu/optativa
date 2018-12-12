@@ -8,7 +8,7 @@ unset($_SESSION['mensaje']);
 switch ($opcion) {
     case "listar":
 //obtenemos la lista de productos:
-        $listado = $productoModel->getProductos(true);
+        $listado = $productoModel->getProductos($orden);
 //y los guardamos en sesion:
         $_SESSION['listado'] = serialize($listado);
         //obtenemos el valor total de productos y guardamos en sesion:
