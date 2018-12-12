@@ -8,13 +8,13 @@
         <p align="center"><b><font face="Monotype Corsiva" size="6">Facturas</font></b></p>
         <table align="center">
             <tr><td>
-                    <form action="./controller/controller.php">
+                    <form action="./controller/controllerf.php">
                         <input type="hidden" value="listarF" name="opcion">
                         <input type="submit" style="width: 150px; height: 60px;" value="Ver facturas">
                     </form>
                 </td>
                 <td>
-                    <form action="./controller/controller.php">
+                    <form action="./controller/controllerf.php">
                         <input type="hidden" value="crearF" name="opcion">
                         <input type="submit" style="width: 150px; height: 60px;" value="Crear Factura">
                     </form>
@@ -43,7 +43,7 @@
                     echo "<td>" . $prod->getApellidos() . "</td>";
 //opciones para invocar al controlador indicando la opcion eliminar o cargar
 //y la fila que selecciono el usuario (con el codigo del producto):
-                    echo "<td><a href='./controller/controller.php?opcion=eliminarF&id=" . $prod->getId() . "'>eliminar</a></td>";
+                    echo "<td><a href='./controller/controllerf.php?opcion=eliminarF&id=" . $prod->getId() . "'>eliminar</a></td>";
 
                     echo "</tr>";
                 }
