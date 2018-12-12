@@ -15,9 +15,7 @@
                         </tr>
                     </table></td>
             </tr>
-            <tr>
-                <td colspan="4"><iframe frameborder="0" id="cuerpoby"  name="cuerpoby" src="index.php" width="100%" height="500"></iframe></td>
-            </tr>
+           
         </table>
     
     <p align="center"><b><font face="Monotype Corsiva" size="6">Productos</font></b></p>
