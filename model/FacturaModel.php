@@ -18,18 +18,18 @@ class FacturaModel {
             $sql = "select * from factura order by id desc";
         $resultado = $pdo->query($sql);
 //transformamos los registros en objetos de tipo Producto:
-        $listado = array();
+        $listadof = array();
         foreach ($resultado as $res) {
             $factura = new Cliente();
             $factura->setId($res['id']);
             $factura->setCedula($res['cedula']);
             $factura->setNombres($res['nombres']);
 	    $factura->setApellidos($res['apellidos']);
-            array_push($listado, $factura);
+            array_push($listadof, $factura);
         }
         Database::disconnect();
 //retornamos el listado resultante:
-        return $listado;
+        return $listadof;
     }
   
     public function crearFactura($id, $ref_factura, $ref_producto, $cantidad,$precio,$subtotal) {
