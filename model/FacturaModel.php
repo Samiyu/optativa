@@ -1,6 +1,6 @@
 <?php
-include '/Database.php';
-include '/Factura.php';
+include './Database.php';
+include './Factura.php';
 /**
  * Componente model para el manejo de productos.
  *

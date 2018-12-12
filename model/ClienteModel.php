@@ -3,7 +3,30 @@ include './Database.php';
 include './Cliente.php';
 
 class ClienteModel {
-   
+   public function getClientes($orden) {
+//obtenemos la informacion de la bdd:
+        $pdo = Database::connect();
+//verificamos el ordenamiento asc o desc:
+        if ($orden == true)//asc
+            $sql = "select * from clientes order by id";
+        else //desc
+            $sql = "select * from clientes order by id";
+        $resultado = $pdo->query($sql);
+//transformamos los registros en objetos de tipo Producto:
+        $listado = array();
+        foreach ($resultado as $res) {
+            $cliente = new Cliente();
+            $cliente->setCodigo($res['id']);
+            $cliente->setNombre($res['cedula']);
+            $cliente->setPrecio($res['nombres']);
+            $cliente->setCantidad($res['apellidos']);
+            array_push($listado, $cliente);
+        }
+        Database::disconnect();
+//retornamos el listado resultante:
+        return $listado;
+    }
+
  public function getCliente($id) {
 //Obtenemos la informacion del producto especifico:
         $pdo = Database::connect();
