@@ -1,15 +1,7 @@
 <?php
-
-///////////////////////////////////////////////////////////////////////
-//Componente controller que verifica la opcion seleccionada
-//por el usuario, ejecuta el modelo y enruta la navegacion de paginas.
-///////////////////////////////////////////////////////////////////////
 require_once '../model/ProductoModel.php';
-
-
 session_start();
 $productoModel = new ProductoModel();
-
 $opcion = $_REQUEST['opcion'];
 //limpiamos cualquier mensaje previo:
 unset($_SESSION['mensaje']);
@@ -21,7 +13,7 @@ switch ($opcion) {
         $_SESSION['listado'] = serialize($listado);
         //obtenemos el valor total de productos y guardamos en sesion:
         $_SESSION['valorTotal'] = $productoModel->getValorProductos();
-        header('Location: ../productos.php');
+        header('Location: ../index.php');
         break;
     case "listar_desc":
 //obtenemos la lista de productos:
