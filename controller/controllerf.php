@@ -10,7 +10,7 @@ unset($_SESSION['mensaje']);
 switch ($opcion) {
     case "listarF":
 
-        $listado = $facturaModel->getFacturas(true);
+        $listado = $facturaModel->getFacturas($orden);
         $_SESSION['listadofac'] = serialize($listado);
         header('Location: ../facturas.php');
         break;
