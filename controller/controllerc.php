@@ -26,7 +26,6 @@ switch ($op) {
         header('Location: ../view/crearC.php');
         break;
     case "guardarC":
-
         $id = $_REQUEST['id'];
         $cedula = $_REQUEST['cedula'];
         $nombres = $_REQUEST['nombres'];
@@ -38,7 +37,7 @@ switch ($op) {
             $_SESSION['mensaje'] = $e->getMessage();
             header('Location: ../clientes.php');
         }
-        $listadoC = $clienteModel->getClientes(true);
+        $listadoC = $clienteModel->getClientes();
         $_SESSION['listadoclis'] = serialize($listadoC);
         header('Location: ../clientes.php');
         break;
@@ -67,7 +66,7 @@ switch ($op) {
         $clienteModel->actualizarCliente($id, $cedula, $nombres, $apellidos);
 
         $listadoC = $clienteModel->getClientes();
-        $_SESSION['listadoclis'] = serialize($listado);
+        $_SESSION['listadoclis'] = serialize($listadoC);
         header('Location: ../clientes.php');
         break;
     default:
