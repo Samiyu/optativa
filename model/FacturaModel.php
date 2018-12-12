@@ -8,11 +8,11 @@ include 'Factura.php';
  */
 class FacturaModel {
 
-    public function getFacturas($orden) {
+    public function getFacturas($ordenf) {
 //obtenemos la informacion de la bdd:
         $pdo = Database::connect();
 //verificamos el ordenamiento asc o desc:
-        if ($orden == true)//asc
+        if ($ordenf == true)//asc
             $sql = "select * from factura order by id";
         else //desc
             $sql = "select * from factura order by id desc";

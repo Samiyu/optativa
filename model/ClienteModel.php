@@ -3,11 +3,11 @@ include 'Database.php';
 include 'Cliente.php';
 
 class ClienteModel {
-   public function getClientes($orden) {
+   public function getClientes($ordenc) {
 //obtenemos la informacion de la bdd:
         $pdo = Database::connect();
 //verificamos el ordenamiento asc o desc:
-        if ($orden == true)//asc
+        if ($ordenc == true)//asc
             $sql = "select * from clientes order by id";
         else //desc
             $sql = "select * from clientes order by id";
