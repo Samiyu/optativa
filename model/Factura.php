@@ -5,7 +5,7 @@
  *
  * @author curso
  */
-class Cliente {
+class Factura {
 
     private $id;
     private $cedula;

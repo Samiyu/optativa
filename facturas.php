@@ -33,8 +33,8 @@
             session_start();
            include './model/Factura.php';
 //verificamos si existe en sesion el listado de productos:
-            if (isset($_SESSION['listadoclisfac'])) {
-                $listado = unserialize($_SESSION['listadoclisfac']);
+            if (isset($_SESSION['listadofac'])) {
+                $listado = unserialize($_SESSION['listadofac']);
                 foreach ($listado as $prod) {
                     echo "<tr>";
                     echo "<td>" . $prod->getId() . "</td>";
