@@ -21,13 +21,13 @@
         <p align="center"><b><font face="Monotype Corsiva" size="6">Facturas</font></b></p>
         <table align="center">
             <tr><td>
-                    <form action="./controller/controllerf.php">
+                    <form action="controller/controllerf.php">
                         <input type="hidden" value="listarF" name="opcion">
                         <input type="submit" style="width: 150px; height: 60px;" value="Ver facturas">
                     </form>
                 </td>
                 <td>
-                    <form action="./controller/controllerf.php">
+                    <form action="controller/controllerf.php">
                         <input type="hidden" value="crearF" name="opcion">
                         <input type="submit" style="width: 150px; height: 60px;" value="Crear Factura">
                     </form>

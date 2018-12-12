@@ -21,12 +21,12 @@
     <p align="center"><b><font face="Monotype Corsiva" size="6">Clientes</font></b></p>
         <table align="center">
             <tr><td>
-                    <form action="./controller/controllerc.php">
+                    <form action="controller/controllerc.php">
                         <input type="hidden" value="listarC" name="opcion">
                         <input type="submit" style="width: 150px; height: 60px;" value="Ver clientes">
                     </form>
                 </td><td>
-                    <form action="./controller/controllerc.php">
+                    <form action="controller/controllerc.php">
                         <input type="hidden" value="crearC" name="opcion">
                         <input type="submit" style="width: 150px; height: 60px;" value="Crear Cliente">
                     </form>
