@@ -1,6 +1,6 @@
 <?php
-include './Database.php';
-include './Cliente.php';
+include 'Database.php';
+include 'Cliente.php';
 
 class ClienteModel {
    public function getClientes($orden) {
