@@ -21,7 +21,7 @@ switch ($opcion) {
         $_SESSION['listado'] = serialize($listado);
         //obtenemos el valor total de productos y guardamos en sesion:
         $_SESSION['valorTotal'] = $productoModel->getValorProductos();
-        header('Location: ./productos.php');
+        header('Location: ../productos.php');
         break;
     case "listar_desc":
 //obtenemos la lista de productos:
@@ -30,11 +30,11 @@ switch ($opcion) {
         $_SESSION['listado'] = serialize($listado);
 //obtenemos el valor total de productos:
         $_SESSION['valorTotal'] = $productoModel->getValorProductos();
-        header('Location: ./productos.php');
+        header('Location: ../productos.php');
         break;
     case "crear":
 //navegamos a la pagina de creacion:
-        header('Location: ./view/crear.php');
+        header('Location: ../view/crear.php');
         break;
     case "guardar":
 //obtenemos los valores ingresados por el usuario en el formulario:
@@ -48,13 +48,13 @@ switch ($opcion) {
         } catch (Exception $e) {
 //colocamos el mensaje de la excepcion en sesion:
             $_SESSION['mensaje'] = $e->getMessage();
-            header('Location: ./productos.php');
+            header('Location: ../productos.php');
         }
         // $productoModel->crearProducto($codigo, $nombre, $precio, $cantidad);
 //actualizamos la lista de productos para grabar en sesion:
         $listado = $productoModel->getProductos(true);
         $_SESSION['listado'] = serialize($listado);
-        header('Location: ./productos.php');
+        header('Location: ../productos.php');
         break;
     case "eliminar":
 //obtenemos el codigo del producto a eliminar:
@@ -64,7 +64,7 @@ switch ($opcion) {
 //actualizamos la lista de productos para grabar en sesion:
         $listado = $productoModel->getProductos(true);
         $_SESSION['listado'] = serialize($listado);
-        header('Location: ./productos.php');
+        header('Location: ../productos.php');
         break;
     case "cargar":
 //para permitirle actualizar un producto al usuario primero
@@ -74,7 +74,7 @@ switch ($opcion) {
 //guardamos en sesion el producto para posteriormente visualizarlo
 //en un formulario para permitirle al usuario editar los valores:
         $_SESSION['producto'] = $producto;
-        header('Location: ./view/actualizar.php');
+        header('Location: ../view/actualizar.php');
         break;
     case "actualizar":
 //obtenemos los datos modificados por el usuario:
@@ -87,7 +87,7 @@ switch ($opcion) {
 //actualizamos la lista de productos para grabar en sesion:
         $listado = $productoModel->getProductos();
         $_SESSION['listado'] = serialize($listado);
-        header('Location: ./productos.php');
+        header('Location: ../productos.php');
         break;
     default:
 //si no existe la opcion recibida por el controlador, siempre

@@ -29,7 +29,7 @@
                 <th><font color="#000">ACTUALIZAR</font></th>
             </tr>
             <?php
-            session_start();
+           session_start();
            include './model/Cliente.php';
 //verificamos si existe en sesion el listado de productos:
             if (isset($_SESSION['listadoclis'])) {
