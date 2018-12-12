@@ -22,7 +22,7 @@ switch ($opcion) {
         $_SESSION['listado'] = serialize($listado);
 //obtenemos el valor total de productos:
         $_SESSION['valorTotal'] = $productoModel->getValorProductos();
-        header('Location: ../productos.php');
+        header('Location: ../index.php');
         break;
     case "crear":
 //navegamos a la pagina de creacion:
@@ -40,13 +40,13 @@ switch ($opcion) {
         } catch (Exception $e) {
 //colocamos el mensaje de la excepcion en sesion:
             $_SESSION['mensaje'] = $e->getMessage();
-            header('Location: ../productos.php');
+            header('Location: ../index.php');
         }
         // $productoModel->crearProducto($codigo, $nombre, $precio, $cantidad);
 //actualizamos la lista de productos para grabar en sesion:
         $listado = $productoModel->getProductos(true);
         $_SESSION['listado'] = serialize($listado);
-        header('Location: ../productos.php');
+        header('Location: ../index.php');
         break;
     case "eliminar":
 //obtenemos el codigo del producto a eliminar:
@@ -56,7 +56,7 @@ switch ($opcion) {
 //actualizamos la lista de productos para grabar en sesion:
         $listado = $productoModel->getProductos(true);
         $_SESSION['listado'] = serialize($listado);
-        header('Location: ../productos.php');
+        header('Location: ../index.php');
         break;
     case "cargar":
 //para permitirle actualizar un producto al usuario primero
@@ -79,12 +79,12 @@ switch ($opcion) {
 //actualizamos la lista de productos para grabar en sesion:
         $listado = $productoModel->getProductos();
         $_SESSION['listado'] = serialize($listado);
-        header('Location: ../productos.php');
+        header('Location: ../index.php');
         break;
     default:
 //si no existe la opcion recibida por el controlador, siempre
 //redirigimos la navegacion a la pagina index:
-        header('Location: ../productos.php');
+        header('Location: ../index.php');
 
 }
 //    ---------------------FACTURAS----------------------------------
