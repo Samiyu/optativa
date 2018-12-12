@@ -22,12 +22,12 @@
         <table align="center">
             <tr><td>
                     <form action="controller/controllerc.php">
-                        <input type="hidden" value="listarC" name="opcion">
+                        <input type="hidden" value="listarC" name="op">
                         <input type="submit" style="width: 150px; height: 60px;" value="Ver clientes">
                     </form>
                 </td><td>
                     <form action="controller/controllerc.php">
-                        <input type="hidden" value="crearC" name="opcion">
+                        <input type="hidden" value="crearC" name="op">
                         <input type="submit" style="width: 150px; height: 60px;" value="Crear Cliente">
                     </form>
                 </td></tr>
@@ -47,16 +47,16 @@
 //verificamos si existe en sesion el listado de productos:
             if (isset($_SESSION['listadoclis'])) {
                 $listadoC = unserialize($_SESSION['listadoclis']);
-                foreach ($listadoC as $prod) {
+                foreach ($listadoC as $pro) {
                     echo "<tr>";
-                    echo "<td>" . $prod->getId() . "</td>";
-                    echo "<td>" . $prod->getCedula() . "</td>";
-                    echo "<td>" . $prod->getNombres() . "</td>";
-                    echo "<td>" . $prod->getApellidos() . "</td>";
+                    echo "<td>" . $pro->getId() . "</td>";
+                    echo "<td>" . $pro->getCedula() . "</td>";
+                    echo "<td>" . $pro->getNombres() . "</td>";
+                    echo "<td>" . $pro->getApellidos() . "</td>";
 //opciones para invocar al controlador indicando la opcion eliminar o cargar
 //y la fila que selecciono el usuario (con el codigo del producto):
-                    echo "<td><a href='controller/controllerc.php?opcion=eliminarC&id=" . $prod->getId() . "'>eliminar</a></td>";
-                    echo "<td><a href='controller/controllerc.php?opcion=cargarC&id=" . $prod->getId() . "'>actualizar</a></td>";
+                    echo "<td><a href='controller/controllerc.php?op=eliminarC&id=" . $prod->getId() . "'>eliminar</a></td>";
+                    echo "<td><a href='controller/controllerc.php?op=cargarC&id=" . $prod->getId() . "'>actualizar</a></td>";
                     echo "</tr>";
                 }
             } else {

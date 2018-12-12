@@ -8,17 +8,17 @@
 require_once '../model/ClienteModel.php';
 session_start();
 $clienteModel = new ClienteModel();
-$opcion = $_REQUEST['opcion'];
+$opcion = $_REQUEST['op'];
 //limpiamos cualquier mensaje previo:
 unset($_SESSION['mensaje']);
-switch ($opcion) {
+switch ($op) {
    case "listarC":
 //obtenemos la lista de productos:
         $listadoC = $clienteModel->getClientes($ordenc);
 //y los guardamos en sesion:
         $_SESSION['listadoclis'] = serialize($listadoC);
         //obtenemos el valor total de productos y guardamos en sesion:
-        header('Location: ../index.php');
+        header('Location: ../clientes.php');
         break;
 
     case "crearC":
