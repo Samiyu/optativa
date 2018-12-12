@@ -105,5 +105,30 @@
                 <th><font color="#000">ELIMINAR</font></th>
                 <th><font color="#000">ACTUALIZAR</font></th>
             </tr>
+               <?php
+           session_start();
+           include './model/Cliente.php';
+//verificamos si existe en sesion el listado de productos:
+            if (isset($_SESSION['listadoclis'])) {
+                $listadoC = unserialize($_SESSION['listadoclis']);
+                foreach ($listadoC as $prod) {
+                    echo "<tr>";
+                    echo "<td>" . $prod->getId() . "</td>";
+                    echo "<td>" . $prod->getCedula() . "</td>";
+                    echo "<td>" . $prod->getNombres() . "</td>";
+                    echo "<td>" . $prod->getApellidos() . "</td>";
+//opciones para invocar al controlador indicando la opcion eliminar o cargar
+//y la fila que selecciono el usuario (con el codigo del producto):
+                    echo "<td><a href='controller/controllerc.php?opcion=eliminarC&id=" . $prod->getId() . "'>eliminar</a></td>";
+                    echo "<td><a href='controller/controllerc.php?opcion=cargarC&id=" . $prod->getId() . "'>actualizar</a></td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo "";
+                
+            }
+            ?>
+            
+        </table>
     </body>
 </html>
