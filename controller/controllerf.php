@@ -9,9 +9,8 @@ $opcion = $_REQUEST['opcion'];
 unset($_SESSION['mensaje']);
 switch ($opcion) {
     case "listarF":
-
-        $listado = $facturaModel->getFacturas($ordenf);
-        $_SESSION['listadofac'] = serialize($listado);
+        $listadof = $facturaModel->getFacturas($ordenf);
+        $_SESSION['listadofac'] = serialize($listadof);
         header('Location: ../facturas.php');
         break;
 
@@ -20,7 +19,6 @@ switch ($opcion) {
         break;
 
     case "guardarF":
-
         $id = $_REQUEST['id'];
         $ref_factura= $_REQUEST['ref_fac'];
         $ref_producto= $_REQUEST['ref_prod'];
@@ -34,8 +32,8 @@ switch ($opcion) {
             $_SESSION['mensaje'] = $e->getMessage();
             header('Location: ../facturas.php');
         }
-        $listado = $facturaModel->getFacturas();
-        $_SESSION['listadofac'] = serialize($listado);
+        $listadof = $facturaModel->getFacturas();
+        $_SESSION['listadofac'] = serialize($listadof);
         header('Location: ../facturas.php');
         break;
 
@@ -44,8 +42,8 @@ switch ($opcion) {
 
         $facturaModel->eliminarFactura($id);
 
-        $listado = $clienteModel->getClientes(true);
-        $_SESSION['listadofac'] = serialize($listado);
+        $listadof = $clienteModel->getClientes(true);
+        $_SESSION['listadofac'] = serialize($listadof);
         header('Location: ../facturas.php');
         break;
     case "cargarF":
@@ -54,17 +52,6 @@ switch ($opcion) {
         $_SESSION['factura'] = $factura;
         header('Location: ../view/actualizarF.php');
         break;
-    case "actualizarF":
-        $id = $_REQUEST['id'];
-        $cedula = $_REQUEST['cedula'];
-        $nombres = $_REQUEST['nombres'];
-        $apellidos = $_REQUEST['apellidos'];
-
-        $clienteModel->actualizarCliente($id, $cedula, $nombres, $apellidos);
-
-        $listadoC = $clienteModel->getClientes();
-        $_SESSION['listadoC'] = serialize($listado);
-        header('Location: ../clientes.php');
-        break;
+    
 }
 

@@ -14,9 +14,9 @@ unset($_SESSION['mensaje']);
 switch ($opcion) {
    case "listarC":
 //obtenemos la lista de productos:
-        $listado = $clienteModel->getClientes($ordenc);
+        $listadoC = $clienteModel->getClientes($ordenc);
 //y los guardamos en sesion:
-        $_SESSION['listadoclis'] = serialize($listado);
+        $_SESSION['listadoclis'] = serialize($listadoC);
         //obtenemos el valor total de productos y guardamos en sesion:
         header('Location: ../clientes.php');
         break;
@@ -39,7 +39,7 @@ switch ($opcion) {
             header('Location: ../clientes.php');
         }
         $listadoC = $clienteModel->getClientes(true);
-        $_SESSION['listadoC'] = serialize($listadoC);
+        $_SESSION['listadoclis'] = serialize($listadoC);
         header('Location: ../clientes.php');
         break;
 
@@ -49,7 +49,7 @@ switch ($opcion) {
         $clienteModel->eliminarCliente($id);
 
         $listadoC = $clienteModel->getClientes(true);
-        $_SESSION['listadoC'] = serialize($listadoC);
+        $_SESSION['listadoclis'] = serialize($listadoC);
         header('Location: ../clientes.php');
         break;
     case "cargarC":
@@ -67,7 +67,7 @@ switch ($opcion) {
         $clienteModel->actualizarCliente($id, $cedula, $nombres, $apellidos);
 
         $listadoC = $clienteModel->getClientes();
-        $_SESSION['listadoC'] = serialize($listado);
+        $_SESSION['listadoclis'] = serialize($listado);
         header('Location: ../clientes.php');
         break;
 }
