@@ -1,19 +1,17 @@
 <?php
+
 include 'Database.php';
 include 'Cliente.php';
 
 class ClienteModel {
-   public function getClientes($ordenc) {
+
+    public function getClientes() {
 //obtenemos la informacion de la bdd:
         $pdo = Database::connect();
-//verificamos el ordenamiento asc o desc:
-        if ($ordenc == true)//asc
-            $sql = "select * from clientes order by id";
-        else //desc
-            $sql = "select * from clientes order by id";
+        $sql = "select * from clientes;";
         $resultado = $pdo->query($sql);
 //transformamos los registros en objetos de tipo Producto:
-        $listadoC= array();
+        $listadoC = array();
         foreach ($resultadoC as $re) {
             $cliente = new Cliente();
             $cliente->setCodigo($re['id']);
@@ -27,7 +25,7 @@ class ClienteModel {
         return $listadoC;
     }
 
- public function getCliente($id) {
+    public function getCliente($id) {
 //Obtenemos la informacion del producto especifico:
         $pdo = Database::connect();
 //Utilizamos parametros para la consulta:
@@ -47,7 +45,7 @@ class ClienteModel {
         return $cliente;
     }
 
-public function crearCliente($id, $cedula, $nombres, $apellidos) {
+    public function crearCliente($id, $cedula, $nombres, $apellidos) {
 //Preparamos la conexion a la bdd:
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -89,4 +87,5 @@ public function crearCliente($id, $cedula, $nombres, $apellidos) {
         $consulta->execute(array($id, $cedula, $nombres, $apellidos));
         Database::disconnect();
     }
+
 }
