@@ -10,22 +10,22 @@
             <tr><td>
                     <form action="./controller/controllerfacturas.php">
                         <input type="hidden" value="listar" name="opcion">
-                        <input type="submit" style="width: 150px; height: 60px;" value="Consultar listado">
+                        <input type="submit" style="width: 150px; height: 60px;" value="Ver facturas">
                     </form>
                 </td>
                 <td>
                     <form action="./controller/controllerfacturas.php">
                         <input type="hidden" value="crear" name="opcion">
-                        <input type="submit" style="width: 150px; height: 60px;" value="Crear producto">
+                        <input type="submit" style="width: 150px; height: 60px;" value="Crear Factura">
                     </form>
                 </td></tr>
         </table>
         <table border="1" align="center">
             <tr bgcolor="#CC6633" bordercolor="#FFFFFF" height="40">
-                <th><font color="#FFFFFF">CODIGO</font></th>
-                <th><font color="#FFFFFF">CEDULA</font></th>
-                <th><font color="#FFFFFF">NOMBRES</font></th>
-                <th><font color="#FFFFFF">APELLIDOS</font></th>
+                <th><font color="#FFFFFF">ID</font></th>
+                <th><font color="#FFFFFF">REF_CLIENTE</font></th>
+                <th><font color="#FFFFFF">FECHA</font></th>
+                <th><font color="#FFFFFF">TOTAL</font></th>
                 <th><font color="#FFFFFF">ELIMINAR</font></th>
                 <th><font color="#FFFFFF">ACTUALIZAR</font></th>
             </tr>
