@@ -8,7 +8,7 @@
 require_once '../model/ClienteModel.php';
 session_start();
 $clienteModel = new ClienteModel();
-$opcion = $_REQUEST['op'];
+$op = $_REQUEST['op'];
 //limpiamos cualquier mensaje previo:
 unset($_SESSION['mensaj']);
 switch ($op) {
