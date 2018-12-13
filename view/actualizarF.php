@@ -17,9 +17,9 @@
             <input type="hidden" value="
                 <?php echo $factura->getId(); ?>" name="id">
             ID:<b><?php echo $factura->getId(); ?></b><br>
-            Nombre:<input type="text" name="ref_cliente" value="<?php echo $factura->getRef_cliente(); ?>"><br>
-            Direccion:<input type="text" name="fecha" value="<?php echo $factura->getFecha(); ?>"><br>
-            Telefono:<input type="text" name="total" value="<?php echo $factura->getTotal(); ?>"><br>
+            Nombre:<input type="text" name="nombre" value="<?php echo $factura->getNombre(); ?>"><br>
+            Direccion:<input type="text" name="direccion" value="<?php echo $factura->getDireccion(); ?>"><br>
+            Telefono:<input type="text" name="telefono" value="<?php echo $factura->getTelefono(); ?>"><br>
             Email:<input type="text" name="email" value="<?php echo $factura->getEmail(); ?>"><br>
             <input type="submit" value="Actualizar">
         </form>

@@ -53,12 +53,12 @@
                 foreach ($listadof as $p) {
                     echo "<tr>";
                     echo "<td>" . $p->getId() . "</td>";
-                    echo "<td>" . $p->getRef_cliente() . "</td>";
-                    echo "<td>" . $p->getFecha() . "</td>";
-                    echo "<td>" . $p->getTotal() . "</td>";
+                        echo "<td>" . $p->getNombre() . "</td>";
+                    echo "<td>" . $p->getDireccion() . "</td>";
+                    echo "<td>" . $p->getTelefono() . "</td>";
                     echo "<td>" . $p->getEmail() . "</td>";
-                    echo "<td><a href='./controller/controllerf.php?opc=eliminarF&id=" . $p->getId() . "'>eliminar</a></td>";
-                    echo "<td><a href='./controller/controllerf.php?opc=actualizarF&id=" . $p->getId() . "'>actualizar</a></td>";
+                    echo "<td><a href='controller/controllerf.php?opc=eliminarF&id=" . $p->getId() . "'>eliminar</a></td>";
+                    echo "<td><a href='controller/controllerf.php?opc=actualizarF&id=" . $p->getId() . "'>actualizar</a></td>";
                     echo "</tr>";
                 }
             } else {

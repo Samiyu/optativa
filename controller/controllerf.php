@@ -18,13 +18,13 @@ switch ($opc) {
 
     case "guardarF":
         $id = $_REQUEST['id'];
-        $ref_cliente= $_REQUEST['ref_cliente'];
-        $fecha= $_REQUEST['fecha'];
-        $total= $_REQUEST['total'];
+        $nombre= $_REQUEST['nombre'];
+        $direccion= $_REQUEST['direccion'];
+        $telefono= $_REQUEST['telefono'];
         $email= $_REQUEST['email'];
 
         try {
-            $facturaModel->crearFactura($id, $ref_cliente,  $fecha,$total, $email);
+            $facturaModel->crearFactura($id, $nombre, $direccion,$telefono, $email);
         } catch (Exception $e) {
             $_SESSION['mensaje'] = $e->getMessage();
             header('Location: ../facturas.php');
@@ -50,11 +50,11 @@ switch ($opc) {
         break;
     case "actualizarF":
         $id = $_REQUEST['id'];
-        $ref_cliente = $_REQUEST['ref_cliente'];
-        $cantidad = $_REQUEST['fecha'];
-        $precio = $_REQUEST['total'];
+        $nombre = $_REQUEST['nombre'];
+        $direccion = $_REQUEST['direccion'];
+        $telefono = $_REQUEST['telefono'];
         $email = $_REQUEST['email'];
-        $facturaModel->actualizarFactura($id, $ref_cliente, $fecha,$total, $email);
+        $facturaModel->actualizarFactura($id, $nombre, $direccion,$telefono, $email);
         $listadof = $facturaModel->getFacturas();
         $_SESSION['listadofac'] = serialize($listadof);
         header('Location: ../facturas.php');

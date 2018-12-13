@@ -23,15 +23,15 @@
                             </tr>
                            <tr>
                                 <td>Nombre: </td>
-                                <td><input type="text" name="ref_cliente"></td>
+                                <td><input type="text" name="nombre"></td>
                             </tr>
                             <tr>
                                 <td>Direccion: </td>
-                                <td><input type="text" name="fecha"></td>
+                                <td><input type="text" name="direccion"></td>
                             </tr>
                             <tr>
                                 <td>Telefono: </td>
-                                <td><input type="text" name="total"></td>
+                                <td><input type="text" name="telefono"></td>
                             </tr>
                             <tr>
                                 <td>Email: </td>
