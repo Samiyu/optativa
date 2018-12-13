@@ -69,6 +69,24 @@ class ProductoModel {
         Database::disconnect();
         return $producto;
     }
+     public function getProduct() {
+//Obtenemos la informacion del producto especifico:
+        $pdo = Database::connect();
+//Utilizamos parametros para la consulta:
+        $sql = "select * from producto";
+        $consulta = $pdo->prepare($sql);
+        $produc=array();
+        include 'Producto.php';
+//Ejecutamos y pasamos los parametros para la consulta:
+        foreach ($consulta as $res) {
+            $producto = new Producto();
+            $producto->setCodigo($res['codigo']);
+            $producto->setNombre($res['nombre']);
+            array_push($produc, $producto);
+        }
+        Database::disconnect();
+        return $producto;
+    }
 
     /**
      * Crea un nuevo producto en la base de datos.

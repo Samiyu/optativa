@@ -1,6 +1,6 @@
 <?php
 
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -12,7 +12,7 @@ $op = $_REQUEST['op'];
 //limpiamos cualquier mensaje previo:
 unset($_SESSION['mensaj']);
 switch ($op) {
-   case "listarC":
+    case "listarC":
 //obtenemos la lista de productos:
         $listadoC = $clienteModel->getClientes();
 //y los guardamos en sesion:
@@ -58,15 +58,10 @@ switch ($op) {
         $cedula = $_REQUEST['cedula'];
         $nombres = $_REQUEST['nombres'];
         $apellidos = $_REQUEST['apellidos'];
-
         $clienteModel->actualizarCliente($id, $cedula, $nombres, $apellidos);
-
         $listadoC = $clienteModel->getClientes();
         $_SESSION['listadoclis'] = serialize($listadoC);
         header('Location: ../clientes.php');
         break;
-    default:
-//si no existe la opcion recibida por el controlador, siempre
-//redirigimos la navegacion a la pagina index:
-        header('Location: ../clientes.php');
+    default:header('Location: ../clientes.php');
 }

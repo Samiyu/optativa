@@ -7,44 +7,43 @@
  */
 class Factura {
 
-    private $id;
-    private $cedula;
-    private $nombres;
-    private $apellidos;
-
+    private $id,$ref_cliente,$total,$fecha,$email;
     function getId() {
         return $this->id;
     }
-
-    function getCedula() {
-        return $this->cedula;
+    function getEmail() {
+        return $this->email;
     }
 
-    function getNombres() {
-        return $this->nombres;
+    function setEmail($email) {
+        $this->email = $email;
     }
 
-    function getApellidos() {
-        return $this->apellidos;
+        function getRef_cliente() {
+        return $this->ref_cliente;
+    }
+
+    function getTotal() {
+        return $this->total;
+    }
+
+    function getFecha() {
+        return $this->fecha;
     }
 
     function setId($id) {
         $this->id = $id;
     }
 
-    function setCedula($cedula) {
-        $this->cedula = $cedula;
+    function setRef_cliente($ref_cliente) {
+        $this->ref_cliente = $ref_cliente;
     }
 
-    function setNombres($nombres) {
-        $this->nombres = $nombres;
+    function setTotal($total) {
+        $this->total = $total;
     }
 
-    function setApellidos($apellidos) {
-        $this->apellidos = $apellidos;
+    function setFecha($fecha) {
+        $this->fecha = $fecha;
     }
-
-
-    
-
 }

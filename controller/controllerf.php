@@ -1,15 +1,13 @@
 <?php
-
-
 require_once '../model/FacturaModel.php';
 session_start();
 $facturaModel = new FacturaModel();
-$opcion = $_REQUEST['opcion'];
+$opc = $_REQUEST['opc'];
 //limpiamos cualquier mensaje previo:
 unset($_SESSION['mensaje']);
-switch ($opcion) {
+switch ($opc) {
     case "listarF":
-        $listadof = $facturaModel->getFacturas($ordenf);
+        $listadof = $facturaModel->getFacturas();
         $_SESSION['listadofac'] = serialize($listadof);
         header('Location: ../facturas.php');
         break;
@@ -20,14 +18,13 @@ switch ($opcion) {
 
     case "guardarF":
         $id = $_REQUEST['id'];
-        $ref_factura= $_REQUEST['ref_fac'];
-        $ref_producto= $_REQUEST['ref_prod'];
-        $cantidad= $_REQUEST['cantidad'];
-        $precio= $_REQUEST['precio'];
-        $subtotal= $_REQUEST['subtotal'];
+        $ref_cliente= $_REQUEST['ref_cliente'];
+        $fecha= $_REQUEST['fecha'];
+        $total= $_REQUEST['total'];
+        $email= $_REQUEST['email'];
 
         try {
-            $facturaModel->crearFactura($id, $ref_factura, $ref_producto, $cantidad, $precio, $subtotal);
+            $facturaModel->crearFactura($id, $ref_cliente,  $fecha,$total, $email);
         } catch (Exception $e) {
             $_SESSION['mensaje'] = $e->getMessage();
             header('Location: ../facturas.php');
@@ -39,22 +36,30 @@ switch ($opcion) {
 
     case "eliminarF":
         $id = $_REQUEST['id'];
-
         $facturaModel->eliminarFactura($id);
-
-        $listadof = $clienteModel->getClientes(true);
+        $listadof = $facturaModel->getFacturas();
         $_SESSION['listadofac'] = serialize($listadof);
         header('Location: ../facturas.php');
         break;
+    
     case "cargarF":
         $id = $_REQUEST['id'];
-        $factura = $facturaModel->getFacturas($orden);
+        $factura = $facturaModel->getFacturas();
         $_SESSION['factura'] = $factura;
         header('Location: ../view/actualizarF.php');
         break;
+    case "actualizarF":
+        $id = $_REQUEST['id'];
+        $ref_cliente = $_REQUEST['ref_cliente'];
+        $cantidad = $_REQUEST['fecha'];
+        $precio = $_REQUEST['total'];
+        $email = $_REQUEST['email'];
+        $facturaModel->actualizarFactura($id, $ref_cliente, $fecha,$total, $email);
+        $listadof = $facturaModel->getFacturas();
+        $_SESSION['listadofac'] = serialize($listadof);
+        header('Location: ../facturas.php');
+        break;
     default:
-//si no existe la opcion recibida por el controlador, siempre
-//redirigimos la navegacion a la pagina index:
         header('Location: ../facturas.php');
 }
 

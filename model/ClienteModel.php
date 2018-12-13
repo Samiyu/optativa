@@ -84,7 +84,7 @@ class ClienteModel {
         $sql = "update clientes set cedula=?,nombres=?,apellidos=? where id=?";
         $consulta = $pdo->prepare($sql);
 //Ejecutamos la sentencia incluyendo a los parametros:
-        $consulta->execute(array($id, $cedula, $nombres, $apellidos));
+        $consulta->execute(array( $cedula, $nombres, $apellidos,$id));
         Database::disconnect();
     }
 

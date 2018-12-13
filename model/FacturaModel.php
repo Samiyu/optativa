@@ -8,45 +8,48 @@ include 'Factura.php';
  */
 class FacturaModel {
 
-    public function getFacturas($ordenf) {
+    public function getFacturas() {
 //obtenemos la informacion de la bdd:
         $pdo = Database::connect();
-//verificamos el ordenamiento asc o desc:
-        if ($ordenf == true)//asc
-            $sql = "select * from factura order by id";
-        else //desc
-            $sql = "select * from factura order by id desc";
-        $resultado = $pdo->query($sql);
-//transformamos los registros en objetos de tipo Producto:
+            $sql = "select * from proveedor;";
+           $resultad = $pdo->query($sql);
         $listadof = array();
-        foreach ($resultado as $res) {
-            $factura = new Cliente();
+        foreach ($resultad as $res) {
+            $factura = new Factura();
             $factura->setId($res['id']);
-            $factura->setCedula($res['cedula']);
-            $factura->setNombres($res['nombres']);
-	    $factura->setApellidos($res['apellidos']);
+            $factura->setRef_cliente($res['nombre']);
+            $factura->setFecha($res['direccion']);
+	    $factura->setTotal($res['telefono']);
+            $factura->setEmail($res['email']);
             array_push($listadof, $factura);
         }
         Database::disconnect();
 //retornamos el listado resultante:
         return $listadof;
     }
+    public function actualizarFactura($id, $ref_producto, $fecha,$total,$email) {
+//Preparamos la conexión a la bdd:
+        $pdo = Database::connect();
+        $sql = "update proveedor set nombre=?,direccion=?,telefono=?,email=? where id=?;";
+        $consulta = $pdo->prepare($sql);
+//Ejecutamos la sentencia incluyendo a los parametros:
+        $consulta->execute(array($ref_producto, $fecha,$total,$email,$id));
+        Database::disconnect();
+    }
   
-    public function crearFactura($id, $ref_factura, $ref_producto, $cantidad,$precio,$subtotal) {
+    public function crearFactura($id, $ref_producto,  $fecha,$total,$email) {
 //Preparamos la conexion a la bdd:
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-//Preparamos la sentencia con parametros:
-        $sql = "insert into detallefactura (id,ref_factura,ref_producto,cantidad,precio,subtotal) values(?,?,?,?,?,?)";
+
+        $sql = "insert into proveedor (id,nombre,direccion,telefono,email) values(?,?,?,?,?)";
         $consulta = $pdo->prepare($sql);
-//Ejecutamos y pasamos los parametros:
         try {
-            $consulta->execute(array($id, $ref_factura, $ref_producto, $cantidad,$precio,$subtotal) );
+            $consulta->execute(array( $ref_producto,  $fecha,$total,$email,$id) );
         } catch (PDOException $e) {
             Database::disconnect();
             throw new Exception($e->getMessage());
         }
-        //$consulta->execute(array($codigo, $nombre, $precio, $cantidad));
         Database::disconnect();
     }
     
@@ -54,12 +57,10 @@ class FacturaModel {
 //Preparamos la conexion a la bdd:
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "delete from factura where id=?";
+        $sql = "delete from proveedor where id=?";
         $consulta = $pdo->prepare($sql);
 //Ejecutamos la sentencia incluyendo a los parametros:
         $consulta->execute(array($id));
         Database::disconnect();
     }
-
-  
 }
