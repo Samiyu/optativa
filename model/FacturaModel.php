@@ -33,7 +33,7 @@ class FacturaModel {
         $sql = "update proveedor set nombre=?,direccion=?,telefono=?,email=? where id=?;";
         $consulta = $pdo->prepare($sql);
 //Ejecutamos la sentencia incluyendo a los parametros:
-        $consulta->execute(array( $nombre, $direccion,$telefono, $email,$id));
+        $consulta->execute(array($nombre, $direccion,$telefono, $email,$id));
         Database::disconnect();
     }
   

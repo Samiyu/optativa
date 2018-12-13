@@ -35,8 +35,8 @@ class Database {
 // Una sola conexion para toda la aplicacion (singleton):
         if (null == self::$conexion) {
             try {
-            self::$conexion =  new PDO('pgsql:host=ec2-54-204-36-249.compute-1.amazonaws.com;port=5432;dbname=d22eokasrcc2a4', 'fwrgdmkgnuxwuv', 'd574cc1b39cd919416de09c501765403fc3481805e8b41b83edd8dd6cf12e236'); 		self::$conexion =  new PDO('pgsql:host=ec2-54-204-36-249.compute-1.amazonaws.com;port=5432;dbname=d22eokasrcc2a4', 'fwrgdmkgnuxwuv', 'd574cc1b39cd919416de09c501765403fc3481805e8b41b83edd8dd6cf12e236');  
-               //self::$conexion =  new PDO('pgsql:host=localhost;port=5432;dbname=productos', 'postgres', 'admin'); 
+             self::$conexion =  new PDO('pgsql:host=ec2-54-204-36-249.compute-1.amazonaws.com;port=5432;dbname=d22eokasrcc2a4', 'fwrgdmkgnuxwuv', 'd574cc1b39cd919416de09c501765403fc3481805e8b41b83edd8dd6cf12e236'); 		self::$conexion =  new PDO('pgsql:host=ec2-54-204-36-249.compute-1.amazonaws.com;port=5432;dbname=d22eokasrcc2a4', 'fwrgdmkgnuxwuv', 'd574cc1b39cd919416de09c501765403fc3481805e8b41b83edd8dd6cf12e236');  
+             //  self::$conexion =  new PDO('pgsql:host=localhost;port=5432;dbname=productos', 'postgres', 'admin'); 
 
             } catch (PDOException $e) {
                 die($e->getMessage());
